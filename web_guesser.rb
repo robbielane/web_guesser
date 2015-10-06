@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'sinatra/reloader'
+require 'pry'
 
 SECRET_NUMBER = rand(100)
 
@@ -21,11 +22,25 @@ def guess_check(guess)
   end
 end
 
+def display_cheat?(cheat)
+  if cheat.nil?
+    "none"
+  elsif cheat == "true"
+    "block"
+  else
+    "none"
+  end
+end
+
 get '/' do
   guess = params['guess'].to_i
   message, color = guess_check(guess)
-  erb :index, :locals => {:secret_number => SECRET_NUMBER, :message => message, :color => color}
-
+  cheat = display_cheat?(params['cheat'])
+  erb :index, :locals => {:secret_number => SECRET_NUMBER,
+                          :message => message,
+                          :color => color,
+                          :cheat => cheat
+                        }
 end
 
 #BF3F46 Dark red

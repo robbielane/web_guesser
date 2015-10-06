@@ -8,8 +8,10 @@
         color: #ccc;
         background-color: <%= color %>;
       }
+      .hidden {
+        display: <%= cheat %>;
+      }
       .center {
-        display: block;
         margin: 0 auto;
         text-align: center;
       }
@@ -29,6 +31,7 @@
         width: 100px;
         height: 30px;
         background-color: <%= color %>;
+        margin-bottom: 15px;
       }
     </style>
   </head>
@@ -38,5 +41,6 @@
       <input class="textfield" type='text' name='guess' autofocus />
       <input class="button" type='submit' value='Guess!' />
     </form>
+    <p class="hidden center">The number is <%= secret_number %></p>
   </body>
 </html>
