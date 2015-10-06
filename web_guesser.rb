@@ -3,6 +3,7 @@ require 'sinatra/reloader'
 require 'pry'
 
 SECRET_NUMBER = rand(100)
+@@guesses = 5
 
 def guess_check(guess)
   if guess == 0
