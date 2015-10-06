@@ -1,10 +1,42 @@
 <html>
-  <head></head>
+  <head>
+    <style media="screen">
+      body {
+        margin-top: 100px;
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        font-weight: 300;
+        color: #ccc;
+        background-color: <%= color %>;
+      }
+      .center {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .guess input {
+        width: 200px;
+        height: 30px;
+        border: 2px solid #aaa;
+        margin-top: 15px;
+        font-size: 1em;
+        font-weight: bold;
+        background-color: <%= color %>;
+        padding-left: 10px;
+      }
+
+      .guess .button {
+        width: 100px;
+        height: 30px;
+        background-color: <%= color %>;
+      }
+    </style>
+  </head>
   <body>
-    <p><%= message %></p>
-    <form>
-      <input type='text' name='guess' />
-      <input type='submit' value='Guess!' />
+    <h2 class="center"><%= message %></h2>
+    <form class="center guess">
+      <input class="textfield" type='text' name='guess' autofocus />
+      <input class="button" type='submit' value='Guess!' />
     </form>
   </body>
-  </html>
+</html>
